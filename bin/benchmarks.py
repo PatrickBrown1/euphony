@@ -361,6 +361,7 @@ def classic_esolver(theory, syn_ctx, synth_funs, grammar_map, specification, ver
         generator_factory = enumerators.PointDistinctGeneratorFactory(specification)
     except:
         raise UnsuitableSolverException("Enumerator problems")
+
     TermSolver = termsolvers.PointDistinctTermSolver
     grammar = grammar_map[synth_funs[0]]
     term_generator = grammar.to_generator(generator_factory)
@@ -371,7 +372,6 @@ def classic_esolver(theory, syn_ctx, synth_funs, grammar_map, specification, ver
     if phog.stat_map is None:
         print('No model available for this problem. We use the classic ESolver ...')
         phog = None
-
     term_solver = TermSolver(specification.term_signature, term_generator, stat_model=phog)
     term_solver.stopping_condition = termsolvers.StoppingCondition.one_term_sufficiency
     unifier = unifiers.NullUnifier(None, term_solver, synth_funs, syn_ctx, specification)
@@ -384,7 +384,7 @@ def classic_esolver(theory, syn_ctx, synth_funs, grammar_map, specification, ver
         verifier,
         verify_term_solve=False
     )
-    print(solver.points);
+    # print(solver.points)
     try:
         solution = next(solutions)
     except StopIteration:
@@ -410,7 +410,7 @@ def memoryless_esolver(theory, syn_ctx, synth_funs, grammar_map, specification, 
     term_solver.stopping_condition = termsolvers.StoppingCondition.one_term_sufficiency
     unifier = unifiers.NullUnifier(None, term_solver, synth_funs, syn_ctx, specification)
 
-    print(syn_ctx)
+    # print(syn_ctx)
     solver = solvers.Solver(syn_ctx)
     solutions = solver.solve(
             generator_factory,
@@ -522,7 +522,7 @@ def make_solver(file_sexp, phog_file, rcfg_file):
 
     for solver_name, solver in solvers:
         try:
-            print("Trying solver:", solver_name)
+            # print("Trying solver:", solver_name)
             final_solutions = solver(*solver_args)
             if final_solutions == "NO SOLUTION":
                 print("(fail)")

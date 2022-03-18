@@ -13,25 +13,85 @@ bitvec_test = [
     "icfp_gen_10.3.sl", "icfp_gen_15.13.sl", "icfp_gen_15.2.sl",
     "icfp_gen_2.20.sl", "icfp_gen_3.18.sl"
 ]
-
+# original
+# circuit_test = [
+#     "CrCy_10-sbox2-D5-sIn104.sl", "CrCy_10-sbox2-D5-sIn14.sl",
+#     "CrCy_10-sbox2-D5-sIn15.sl", 
+#     "CrCy_10-sbox2-D5-sIn92.sl", "CrCy_6-P10-D5-sIn.sl",
+#     "CrCy_6-P10-D5-sIn3.sl", "CrCy_6-P10-D7-sIn.sl",
+#     "CrCy_6-P10-D7-sIn3.sl", "CrCy_6-P10-D7-sIn5.sl",
+#     "CrCy_6-P10-D9-sIn.sl", "CrCy_6-P10-D9-sIn3.sl",
+#     "CrCy_6-P10-D9-sIn5.sl", "CrCy_8-P12-D5-sIn1.sl",
+#     "CrCy_8-P12-D5-sIn3.sl", "CrCy_8-P12-D7-sIn1.sl",
+#     "CrCy_8-P12-D7-sIn5.sl", "CrCy_8-P12-D9-sIn1.sl"
+# ]
+# remaining phog circuit
 circuit_test = [
-    "CrCy_10-sbox2-D5-sIn104.sl", "CrCy_10-sbox2-D5-sIn14.sl",
-    "CrCy_10-sbox2-D5-sIn15.sl", "CrCy_10-sbox2-D5-sIn80.sl",
-    "CrCy_10-sbox2-D5-sIn92.sl", "CrCy_6-P10-D5-sIn.sl",
-    "CrCy_6-P10-D5-sIn3.sl", "CrCy_6-P10-D7-sIn.sl",
-    "CrCy_6-P10-D7-sIn3.sl", "CrCy_6-P10-D7-sIn5.sl",
-    "CrCy_6-P10-D9-sIn.sl", "CrCy_6-P10-D9-sIn3.sl",
-    "CrCy_6-P10-D9-sIn5.sl", "CrCy_8-P12-D5-sIn1.sl",
-    "CrCy_8-P12-D5-sIn3.sl", "CrCy_8-P12-D7-sIn1.sl",
-    "CrCy_8-P12-D7-sIn5.sl", "CrCy_8-P12-D9-sIn1.sl"
+"CrCy_6-P10-D7-sIn.sl",
+"CrCy_6-P10-D9-sIn.sl",
+"CrCy_6-P10-D9-sIn5.sl",
+"CrCy_8-P12-D9-sIn1.sl"
 ]
-
-string_test = [
-    "phone-5.sl", "phone-5-long.sl", "phone-5-long-repeat.sl", "phone-5-short.sl",
-    "phone-6.sl", "phone-6-long.sl", "phone-6-long-repeat.sl", "phone-6-short.sl",
-    "phone-7.sl", "phone-7-long.sl", "phone-7-long-repeat.sl", "phone-7-short.sl"
+# testing on 3 benchmarks that pcfg did super well on but ngram didnt
+# test                      (pcfg time) (ngram time)
+# CrCy_6-P10-D7-sIn.sl      248.4       3601.3
+# CrCy_6-P10-D7-sIn3.sl     188.5       1650.5
+# CrCy_6-P10-D9-sIn.sl      429.7       3602.2
+# circuit_test = [
+#     "CrCy_6-P10-D7-sIn.sl",
+#     "CrCy_6-P10-D7-sIn3.sl",
+#     "CrCy_6-P10-D9-sIn.sl"
+# ]
+# circuit_test = [
+#     "CrCy_10-sbox2-D5-sIn80.sl",
+# ]
+# ff_test = ["stackoverflow12.sl","exceljet5","dr-name-long.sl","firstname-long.sl","lastname-long.sl","name-combine-2-long.sl","name-combine-3-long.sl","name-combine-4-long.sl","name-combine-long.sl","phone-1-long.sl","phone-2-long.sl","phone-3-long.sl","phone-4-long.sl","phone-5-long.sl","phone-6-long.sl","phone-7-long.sl","phone-8-long.sl","phone-9-long.sl","phone-long.sl","reverse-name-long.sl","univ_1.sl","univ_1_short.sl"]
+ff_test=["lastname-long.sl",
+# "stackoverflow12.sl",
+# "univ_1.sl",
+# "name-combine-3-long.sl",
+# "phone-4-long.sl",
+# "phone-5-long.sl",
+# "name-combine-2-long.sl",
+# "phone-8-long.sl",
+# "phone-6-long.sl",
+# "phone-7-long.sl"
 ]
-
+# string_test = [
+#     "phone-5.sl", "phone-5-long.sl", "phone-5-long-repeat.sl", "phone-5-short.sl",
+#     "phone-6.sl", "phone-6-long.sl", "phone-6-long-repeat.sl", "phone-6-short.sl",
+#     "phone-7.sl", "phone-7-long.sl", "phone-7-long-repeat.sl", "phone-7-short.sl"
+# ]
+# below is the string benchmarks from the paper
+# string_test = ["exceljet1.sl","exceljet3.sl","exceljet4.sl","stackoverflow1.sl","stackoverflow2.sl","stackoverflow3.sl","stackoverflow4.sl","stackoverflow5.sl","stackoverflow6.sl","stackoverflow7.sl","stackoverflow8.sl","stackoverflow9.sl","stackoverflow10.sl","stackoverflow11.sl","phone-5.sl","phone-5-long.sl","phone-5-long-repeat.sl","phone-5-short.sl","phone-6.sl","phone-6-long.sl","phone-6-long-repeat.sl","phone-6-short.sl","phone-7.sl","phone-7-long.sl","phone-7-long-repeat.sl","phone-7-short","exceljet2.sl"]
+# benchmarks in phog order
+string_test=['phone-7-short.sl',
+'phone-6.sl',
+'phone-6-long.sl',
+'phone-6-short.sl',
+'phone-6-long-repeat.sl',
+'stackoverflow1.sl',
+'phone-7-long.sl',
+'phone-7.sl',
+'phone-7-long-repeat.sl',
+'stackoverflow5.sl',
+'phone-5.sl',
+'phone-5-long-repeat.sl',
+'phone-5-long.sl',
+'phone-5-short.sl',
+'exceljet1.sl',
+'stackoverflow3.sl',
+'stackoverflow4.sl',
+'stackoverflow6.sl',
+'exceljet4.sl',
+'stackoverflow7.sl',
+'stackoverflow9.sl',
+'stackoverflow10.sl',
+'exceljet2.sl',
+'exceljet3.sl',
+'stackoverflow11.sl',
+'stackoverflow2.sl',
+'stackoverflow8.sl']
 def is_valid(f):
     return \
         f.startswith('exceljet') \
@@ -55,27 +115,32 @@ def count_example(args, f):
 def run_solver(args, f, solver="euphony"):
     memory_in_kb = args.memory * 1024 * 1024
     cmd = '(ulimit -v ' + str(memory_in_kb) + '; timeout ' + str(args.timeout) + ' ./bin/run_' + args.cmd
+    if args.ngram: cmd = cmd + "_ngram" 
     if solver == "eusolver":
         cmd += "_eusolver"
-    elif args.strategy is not "":
+    elif args.strategy != "": # is not vs !=
         cmd += "_" + args.strategy
 
     cmd += ' benchmarks/' + args.cmd + '/test/' + f + ')'
+    # print(cmd)
     start_time = time.time()
     output = subprocess.getoutput(cmd)
-    if output is "":
+    start = output.find('(define-fun')
+    output_program = output[start:-1]
+    # print(output) # it's weird that this code doesn't actually write the synthesized code out to a file
+    if output == "": # is vs ==
         iters = ""
         output = ""
     else:
         lines = output.split('\n')
         iters = lines[0]
-        output = lines[1]
+        # output = lines[1]
     with open('euphony-out/' + args.cmd + '/' + f + '.' + solver + '.iter', 'w') as out_file:
         out_file.write(iters)
     with open('euphony-out/' + args.cmd + '/' + f + '.' + solver + '.sol', 'w') as out_file:
         out_file.write(output)
     elapsed_time = time.time() - start_time
-    return elapsed_time
+    return (elapsed_time, output_program)
 
 def count_ast(args, f, solver="euphony"):
     ast_count_base_cmd = './bin/stat euphony-out/' + args.cmd + '/'
@@ -107,13 +172,21 @@ def print_header(args):
 def run(args, logger):
     os.makedirs('euphony-out/' + args.cmd, 0o755, True)
     inputs = [ f for f in os.listdir('benchmarks/' + args.cmd + '/test') \
-               if f.endswith('.sl')]
-    inputs = inputs if args.cmd == "string_flashfill" else [ f for f in inputs if is_valid(f) ] 
-    inputs = sorted(inputs)
+               if f.endswith('.sl')][0:20]
+    inputs = inputs if args.cmd == "string_flashfill" else [ f for f in inputs if is_valid(f) ]
+    if args.cmd == "string":
+        inputs = string_test
+    elif args.cmd == "string_flashfill":
+            inputs = ff_test
+    elif args.cmd == "circuit":
+            inputs = circuit_test
+    print(inputs)
+    # inputs = sorted(inputs)
 
+    # print(inputs)
     print_header(args)
     for f in inputs:
-        elapsed_time_euphony = run_solver(args, f)
+        (elapsed_time_euphony, prog_output) = run_solver(args, f)
         if not args.only_euphony:
             elapsed_time_eusolver = run_solver(args, f, "eusolver")
             P_eusolver = count_ast(args, f, "eusolver")
@@ -122,6 +195,7 @@ def run(args, logger):
         if args.only_euphony:
             print("  %-30s %8d %8d %8.1f" %
                   (f, E, P_euphony, elapsed_time_euphony))
+            print("  ", prog_output)
         else:
             print("  %-30s %8d %8d %8.1f %8d %8.1f" %
                   (f, E, P_euphony, elapsed_time_euphony,
@@ -134,22 +208,27 @@ def parse_args():
     subparser.add_argument("--timeout", type = int, default = 3600)
     subparser.add_argument("--memory", type = int, default = 16)
     subparser.add_argument("--strategy", type = str, default = "")
+    subparser.add_argument("--ngram", type = bool, default = False)
     subparser.add_argument("--only_euphony", action="store_true", default = False)
     subparser = subparsers.add_parser("string_flashfill", help="Run the String Benchmark Programs (used for comparison to FlashFill)")
     subparser.add_argument("--timeout", type = int, default = 600)
     subparser.add_argument("--memory", type = int, default = 16)
     subparser.add_argument("--strategy", type = str, default = "")
+    subparser.add_argument("--ngram", type = bool, default = False)
     subparser.add_argument("--only_euphony", action="store_true", default = True)
     subparser = subparsers.add_parser("bitvec", help="Run the Bitvec Benchmark Programs")
     subparser.add_argument("--timeout", type = int, default = 3600)
     subparser.add_argument("--memory", type = int, default = 16)
     subparser.add_argument("--strategy", type = str, default = "")
+    subparser.add_argument("--ngram", type = bool, default = False)
     subparser.add_argument("--only_euphony", action="store_true", default = False)
     subparser = subparsers.add_parser("circuit", help="Run the Circuit Benchmark Programs")
     subparser.add_argument("--timeout", type = int, default = 3600)
     subparser.add_argument("--memory", type = int, default = 16)
+    subparser.add_argument("--ngram", type = bool, default = False)
     subparser.add_argument("--strategy", type = str, default = "")
     subparser.add_argument("--only_euphony", action="store_true", default = False)
+
     return parser.parse_args()
 
 def main():
